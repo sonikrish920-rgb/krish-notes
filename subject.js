@@ -17,44 +17,44 @@ const subjects = {
         maths1: {
             title: "Mathematics-1",
             pdfs: [
-                { name: "Unit 1 Notes", link: "pdfs/maths1/UnitsNotes/unit1.pdf" },
-                { name: "Unit 2 Notes", link: "pdfs/maths1/UnitsNotes/unit1.pdf" },
-                { name: "Unit 3 Notes", link: "pdfs/maths1/UnitsNotes/unit1.pdf" },
-                { name: "Unit 4 Notes", link: "pdfs/maths1/UnitsNotes/unit1.pdf" },
-                { name: "Unit 5 Notes", link: "pdfs/maths1/UnitsNotes/unit1.pdf" }
+                { name: "Unit 1 Notes", link: "https://github.com/sonikrish920-rgb/krish-notes/blob/main/pdfs/maths1/UnitsNotes/unit1.pdf" },
+                { name: "Unit 2 Notes", link: "https://github.com/sonikrish920-rgb/krish-notes/blob/main/pdfs/maths1/UnitsNotes/unit2.pdf" },
+                { name: "Unit 3 Notes", link: "https://github.com/sonikrish920-rgb/krish-notes/blob/main/pdfs/maths1/UnitsNotes/unit3.pdf" },
+                { name: "Unit 4 Notes", link: "https://github.com/sonikrish920-rgb/krish-notes/blob/main/pdfs/maths1/UnitsNotes/unit4.pdf" },
+                { name: "Unit 5 Notes", link: "https://github.com/sonikrish920-rgb/krish-notes/blob/main/pdfs/maths1/UnitsNotes/unit5.pdf" }
             ]
         },
         
         english: {
             title: "English for Communication",
             pdfs: [
-                { name: "Unit 1 Notes", link: "pdfs/english/UnitsNotes/unit1.pdf" },
-                { name: "Unit 2 Notes", link: "pdfs/english/UnitsNotes/unit2.pdf" },
-                { name: "Unit 3 Notes", link: "pdfs/english/UnitsNotes/unit3.pdf" },
-                { name: "Unit 4 Notes", link: "pdfs/english/UnitsNotes/unit4.pdf" },
-                { name: "Unit 5 Notes", link: "pdfs/english/UnitsNotes/unit5.pdf" }
+                { name: "Unit 1 Notes", link: "https://github.com/sonikrish920-rgb/krish-notes/blob/main/pdfs/english/UnitsNotes/unit1.pdf" },
+                { name: "Unit 2 Notes", link: "https://github.com/sonikrish920-rgb/krish-notes/blob/main/pdfs/english/UnitsNotes/unit2.pdf" },
+                { name: "Unit 3 Notes", link: "https://github.com/sonikrish920-rgb/krish-notes/blob/main/pdfs/english/UnitsNotes/unit3.pdf" },
+                { name: "Unit 4 Notes", link: "https://github.com/sonikrish920-rgb/krish-notes/blob/main/pdfs/english/UnitsNotes/unit4.pdf" },
+                { name: "Unit 5 Notes", link: "https://github.com/sonikrish920-rgb/krish-notes/blob/main/pdfs/english/UnitsNotes/unit5.pdf" }
             ]
         },
 
         beee: {
             title: "Basic Electrical & Electronics",
             pdfs: [
-                { name: "Unit 1 Notes", link: "pdfs/beee/UnitsNotes/unit1.pdf" },
-                { name: "Unit 2 Notes", link: "pdfs/beee/UnitsNotes/unit2.pdf" },
-                { name: "Unit 3 Notes", link: "pdfs/beee/UnitsNotes/unit3.pdf" },
-                { name: "Unit 4 Notes", link: "pdfs/beee/UnitsNotes/unit4.pdf" },
-                { name: "Unit 5 Notes", link: "pdfs/beee/UnitsNotes/unit5.pdf" }
+                { name: "Unit 1 Notes", link: "https://github.com/sonikrish920-rgb/krish-notes/blob/main/pdfs/beee/UnitsNotes/unit1.pdf" },
+                { name: "Unit 2 Notes", link: "https://github.com/sonikrish920-rgb/krish-notes/blob/main/pdfs/beee/UnitsNotes/unit2.pdf" },
+                { name: "Unit 3 Notes", link: "https://github.com/sonikrish920-rgb/krish-notes/blob/main/pdfs/beee/UnitsNotes/unit3.pdf" },
+                { name: "Unit 4 Notes", link: "https://github.com/sonikrish920-rgb/krish-notes/blob/main/pdfs/beee/UnitsNotes/unit4.pdf" },
+                { name: "Unit 5 Notes", link: "https://github.com/sonikrish920-rgb/krish-notes/blob/main/pdfs/beee/UnitsNotes/unit5.pdf" }
             ]
         },
 
         graphics: {
             title: "Engineering Graphics",
             pdfs: [
-                { name: "Unit 1 Notes", link: "pdfs/graphics/UnitNotes/Unit1.pdf" },
-                { name: "Unit 2 Notes", link: "pdfs/graphics/UnitNotes/Unit2.pdf" },
-                { name: "Unit 3 Notes", link: "pdfs/graphics/UnitNotes/Unit3.pdf" },
-                { name: "Unit 4 Notes", link: "pdfs/graphics/UnitNotes/Unit4.pdf" },
-                { name: "All Unit Notes", link: "pdfs/graphics/UnitNotes/AllUnitNotes.pdf" }
+                { name: "Unit 1 Notes", link: "https://github.com/sonikrish920-rgb/krish-notes/blob/main/pdfs/beee/UnitNotes/unit1.pdf" },
+                { name: "Unit 2 Notes", link: "https://github.com/sonikrish920-rgb/krish-notes/blob/main/pdfs/beee/UnitNotes/unit2.pdf" },
+                { name: "Unit 3 Notes", link: "https://github.com/sonikrish920-rgb/krish-notes/blob/main/pdfs/beee/UnitNotes/unit3.pdf" },
+                { name: "Unit 4 Notes", link: "https://github.com/sonikrish920-rgb/krish-notes/blob/main/pdfs/beee/UnitNotes/unit4.pdf" },
+                { name: "All Unit Notes", link: "https://github.com/sonikrish920-rgb/krish-notes/blob/main/pdfs/beee/UnitNotes/AllUnitNotes.pdf" }
             ]
         },
 
@@ -218,3 +218,4 @@ if (subjects[sub]) {
     pdfList.innerHTML = "<p>No data found</p>";
 
 }
+
