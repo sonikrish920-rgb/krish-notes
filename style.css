@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b0f19;
+    color: white;
+}
+
+header {
+    background: #111827;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #3b82f6;
+    margin: 0;
+}
+
+.container {
+    padding: 20px;
+}
+
+.card {
+    display: block;
+    background: #1f2937;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid #3b82f6;
+    transition: 0.2s;
+}
+
+.card:hover {
+    background: #374151;
+}
+
+iframe {
+    width: 100%;
+    height: 90vh;
+    border: none;
+}
+
+nav {
+  background: #222;              /* Dark background */
+  padding: 12px 10px;            /* Enough spacing */
+  display: flex;                 /* Make nav flexible */
+  flex-wrap: wrap;               /* Wrap on small screens */
+  gap: 12px;                     /* Space between links */
+  justify-content: center;       /* Center align */
+  border-bottom: 2px solid #444; /* Light border for clean look */
+}
+
+nav a {
+  color: #ffffff;                /* White text */
+  text-decoration: none;         /* No underline */
+  font-weight: bold;             /* Thick text */
+  padding: 6px 10px;             /* Clickable area */
+  border-radius: 6px;            /* Smooth edges */
+  transition: 0.3s;              /* Smooth hover */
+  font-size: 16px;               /* Good readable size */
+}
+
+nav a:hover {
+  background: #00c3ff;           /* Light blue highlight */
+  color: #000;                   /* Text becomes black */
+}
