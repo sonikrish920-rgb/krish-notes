@@ -6,11 +6,11 @@ const subjects = {
        chemistry: {
     title: "Engineering Chemistry",
     pdfs: [
-        { name: "Unit 1 Notes", link: "https://raw.githubusercontent.com/sonikrish920-rgb/krish-notes/main/pdfs/chemistry/UnitsNotes/unit1.pdf"},
-        { name: "Unit 2 Notes", link: "https://raw.githubusercontent.com/sonikrish920-rgb/krish-notes/main/pdfs/chemistry/UnitsNotes/unit2.pdf" },
-        { name: "Unit 3 Notes", link: "https://raw.githubusercontent.com/sonikrish920-rgb/krish-notes/main/pdfs/chemistry/UnitsNotes/unit3.pdf" },
-        { name: "Unit 4 Notes", link: "https://raw.githubusercontent.com/sonikrish920-rgb/krish-notes/main/pdfs/chemistry/UnitsNotes/unit4.pdf" },
-        { name: "Unit 5 Notes", link: "https://raw.githubusercontent.com/sonikrish920-rgb/krish-notes/main/pdfs/chemistry/UnitsNotes/unit4.pdf" }
+        { name: "Unit 1 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/main/pdfs/chemistry/UnitsNotes/unit1.pdf"},
+        { name: "Unit 2 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/main/pdfs/chemistry/UnitsNotes/unit2.pdf" },
+        { name: "Unit 3 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/main/pdfs/chemistry/UnitsNotes/unit3.pdf" },
+        { name: "Unit 4 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/main/pdfs/chemistry/UnitsNotes/unit4.pdf" },
+        { name: "Unit 5 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/main/pdfs/chemistry/UnitsNotes/unit4.pdf" }
     ]
 },
 
@@ -218,6 +218,7 @@ if (subjects[sub]) {
     pdfList.innerHTML = "<p>No data found</p>";
 
 }
+
 
 
 
