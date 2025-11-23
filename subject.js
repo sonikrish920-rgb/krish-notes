@@ -50,10 +50,10 @@ const subjects = {
         graphics: {
             title: "Engineering Graphics",
             pdfs: [
-                { name: "Unit 1 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/graphics/UnitNotes/UNIT1.pdf" },
-                { name: "Unit 2 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/graphics/UnitNotes/UNIT2.pdf" },
-                { name: "Unit 3 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/graphics/UnitNotes/UNIT3.pdf" },
-                { name: "Unit 4 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/graphics/UnitNotes/UNIT4.pdf" },
+                { name: "Unit 1 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/graphics/UnitNotes/unit1.pdf" },
+                { name: "Unit 2 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/graphics/UnitNotes/unit2.pdf" },
+                { name: "Unit 3 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/graphics/UnitNotes/unit3.pdf" },
+                { name: "Unit 4 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/graphics/UnitNotes/unit4.pdf" },
                 { name: "All Unit Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/graphics/UnitNotes/AllUnitNotes.pdf" }
             ]
         },
@@ -218,6 +218,7 @@ if (subjects[sub]) {
     pdfList.innerHTML = "<p>No data found</p>";
 
 }
+
 
 
 
