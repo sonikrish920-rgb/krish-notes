@@ -198,6 +198,21 @@ const subjects = {
             ]
         },
 
+         ImpQ: {
+            title: "Imp Q with model paper 2026",
+            pdfs: [
+                { name: "BCE Imp topics", link: "pdfs/ImpQ/BCEImp.pdf" },
+                { name: "BCEM Imp topics", link: "pdfs/ImpQ/BCEMImp.pdf" },
+                { name: "BEEE Imp topics", link: "pdfs/ImpQ/BEEEImp.pdf" },
+                { name: "BME Imp Topics", link: "pdfs/ImpQ/BMEImp.pdf" },
+                { name: "Engg. Chemistry Imp topics", link: "pdfs/ImpQ/ChemistryImp.pdf" },
+                { name: "Engg. Graphics Imp topics", link: "pdfs/ImpQ/GraphicsImp.pdf" },
+                { name: "Engg. Physics imp topics", link: "pdfs/ImpQ/PhysicsImp.pdf" },
+                { name: "English_for_communication_imp_topics", link: "pdfs/ImpQ/EnglishImp.pdf" },
+                { name: "Mathematics 1 Imp topics", link: "pdfs/ImpQ/M1Imp.pdf" }
+            ]
+        },
+
     };
 
     const subjectName = document.getElementById("subjectName");
@@ -218,6 +233,7 @@ if (subjects[sub]) {
     pdfList.innerHTML = "<p>No data found</p>";
 
 }
+
 
 
 
