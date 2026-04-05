@@ -16,6 +16,8 @@
 
 <body>
 
+ <div class="menu-btn" onclick="toggleMenu()">☰</div>
+ 
 <!-- SIDEBAR -->
 <div class="sidebar">
   <h2>📚 Notes</h2>
@@ -96,6 +98,13 @@
 
 </div>
 </div>
+
+ <script>
+  
+function toggleMenu() {
+  document.querySelector(".sidebar").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
