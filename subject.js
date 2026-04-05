@@ -1,6 +1,8 @@
+// ======= GET SUBJECT FROM URL ======
 const urlParams = new URLSearchParams(window.location.search);
-const sub = urlParams.get('sub');
+const sub = urlParams.get('sub')?.toLowerCase();
 
+// ======   NOTES DATA ======
 const subjects = {
 
        chemistry: {
@@ -215,25 +217,80 @@ const subjects = {
 
     };
 
-    const subjectName = document.getElementById("subjectName");
+    // ====== SHOW NOTES =======
 const pdfList = document.getElementById("pdfList");
 
 if (subjects[sub]) {
+
     subjectName.textContent = subjects[sub].title;
 
     subjects[sub].pdfs.forEach(pdf => {
-        pdfList.innerHTML += `
-            <a class="card" href="viewer.html?file=${pdf.link}">
-                <h2>${pdf.name}</h2>
-            </a>
+
+        const card = document.createElement("a");
+        card.className = "card";
+
+        const link = pdf.link.toLowerCase();
+
+        // ✅ detect file type
+        const isPDF = link.endsWith(".pdf");
+        const isDOC = link.endsWith(".doc") || link.endsWith(".docx");
+
+        if (isPDF) {
+            // 👉 PDF → viewer
+            card.href = `viewer.html?file=${encodeURIComponent(pdf.link)}`;
+        } else if (isDOC) {
+            // 👉 DOCX → direct open/download
+            card.href = pdf.link;
+            card.target = "_blank";
+        } else {
+            // 👉 unknown
+            card.href = "#";
+            card.style.pointerEvents = "none";
+            card.style.opacity = "0.5";
+        }
+
+        card.innerHTML = `
+            <h2>${pdf.name}</h2>
+            <p style="color:#94a3b8;">
+                ${isPDF ? "Open PDF" : isDOC ? "Download Document" : "Unsupported File"}
+            </p>
         `;
+
+        pdfList.appendChild(card);
     });
 
 } else {
-    pdfList.innerHTML = "<p>No data found</p>";
 
+    pdfList.innerHTML = `
+        <div class="card">
+            <h3>No Notes Found</h3>
+            <p>This subject has no uploaded files yet.</p>
+        </div>
+    `;
 }
+// ===== SEARCH FUNCTION =====
+const searchBox = document.getElementById("searchBox");
 
+if (searchBox) {
+  searchBox.addEventListener("input", function () {
+
+    const value = this.value.toLowerCase();
+
+    // ✅ sirf pdfList ke andar ke cards
+    const cards = document.querySelectorAll("#pdfList .card");
+
+    cards.forEach(card => {
+      const text = card.textContent.toLowerCase();
+
+      if (text.includes(value)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+
+  });
+}
 
 
 
