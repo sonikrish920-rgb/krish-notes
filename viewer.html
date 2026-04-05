@@ -15,7 +15,7 @@
 </head>
 
 <body>
-
+ <div class="menu-btn" onclick="toggleMenu()">☰</div>
 <!-- SIDEBAR -->
 <div class="sidebar">
   <h2>📚 Notes</h2>
@@ -97,6 +97,11 @@ if (file) {
     fileName.textContent = "No PDF Found";
     frame.style.display = "none";
 }
+
+ function toggleMenu() {
+  document.querySelector(".sidebar").classList.toggle("active");
+}
+
 </script>
 
 </body>
