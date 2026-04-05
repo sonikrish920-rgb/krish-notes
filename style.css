@@ -1,68 +1,215 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0b0f19;
-    color: white;
+/* ========== ROOT DESIGN SYSTEM ========== */
+:root {
+  --bg-main: #0a0a0f;
+  --bg-glass: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.1);
+
+  --primary: #8b5cf6;   /* Purple */
+  --secondary: #22c55e; /* Green accent */
+
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
 }
 
+/* ========== BODY ========== */
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #1a0f2e, #050509);
+  color: var(--text-main);
+  display: flex;
+}
+
+/* ========== SIDEBAR ========== */
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(12px);
+  border-right: 1px solid var(--border);
+  padding: 20px;
+  position: fixed;
+}
+
+.sidebar h2 {
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.sidebar a {
+  display: block;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* ========== MAIN CONTENT ========== */
+.main {
+  margin-left: 240px;
+  width: 100%;
+}
+
+/* HEADER */
 header {
-    background: #111827;
-    padding: 20px;
-    text-align: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(10px);
 }
 
 h1 {
-    color: #3b82f6;
-    margin: 0;
+  color: var(--primary);
+  margin: 0;
 }
 
+/* CONTAINER */
 .container {
-    padding: 20px;
+  padding: 25px;
+  max-width: 1000px;
+  margin: auto;
 }
 
+/* ========== CARD (UPGRADED) ========== */
 .card {
-    display: block;
-    background: #1f2937;
-    padding: 20px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    text-decoration: none;
-    color: white;
-    border: 1px solid #3b82f6;
-    transition: 0.2s;
+  display: block;
+  background: var(--bg-glass);
+  padding: 20px;
+  margin-bottom: 18px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text-main);
+  transition: all 0.3s ease;
+  position: relative;
 }
 
+.card iframe {
+  border-radius: 14px;
+}
+
+/* Glow effect */
+.card::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(139,92,246,0.3), transparent);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* Hover */
 .card:hover {
-    background: #374151;
+  transform: translateY(-5px) scale(1.02);
+  border-color: var(--primary);
+  box-shadow: 0 15px 30px rgba(139,92,246,0.25);
 }
 
+/* Title inside card */
+.card h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+/* Subtitle */
+.card p {
+  margin-top: 5px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* ========== IFRAME ========== */
 iframe {
-    width: 100%;
-    height: 90vh;
-    border: none;
+  width: 100%;
+  height: 100vh;
+  border: none;
+  display: block;
+  border-radius: 12px;
+
+}
+#pdfFrame {
+  position: relative;
+  z-index: 1;
 }
 
-nav {
-  background: #222;              /* Dark background */
-  padding: 12px 10px;            /* Enough spacing */
-  display: flex;                 /* Make nav flexible */
-  flex-wrap: wrap;               /* Wrap on small screens */
-  gap: 12px;                     /* Space between links */
-  justify-content: center;       /* Center align */
-  border-bottom: 2px solid #444; /* Light border for clean look */
+#downloadBtn {
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
 }
 
-nav a {
-  color: #ffffff;                /* White text */
-  text-decoration: none;         /* No underline */
-  font-weight: bold;             /* Thick text */
-  padding: 6px 10px;             /* Clickable area */
-  border-radius: 6px;            /* Smooth edges */
-  transition: 0.3s;              /* Smooth hover */
-  font-size: 16px;               /* Good readable size */
+/* ========== SCROLLBAR (PRO LOOK) ========== */
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-nav a:hover {
-  background: #00c3ff;           /* Light blue highlight */
-  color: #000;                   /* Text becomes black */
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
 }
+
+/* ===== FORM ===== */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+  position: relative;
+  z-index: 20; /* click fix */
+}
+
+/* Inputs + textarea */
+form input,
+form textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+  color: var(--text-main);
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+/* Placeholder */
+form input::placeholder,
+form textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* Focus */
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+}
+
+/* Button */
+form button {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* Button hover */
+form button:hover {
+  transform: translateY(-2px);
+}
+
