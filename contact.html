@@ -17,7 +17,7 @@
 </head>
 
 <body>
-
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
 <!-- ========== SIDEBAR ========== -->
 <div class="sidebar">
     <h2>📚 Notes</h2>
@@ -79,6 +79,10 @@ function sendToWhatsApp(event) {
 
     window.open(url, "_blank");
 }
+    function toggleMenu() {
+  document.querySelector(".sidebar").classList.toggle("active");
+}
+
 </script>
 </body>
 </html>
