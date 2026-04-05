@@ -1,36 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-adsense-account" content="ca-pub-6744009221544441">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6744009221544441"
-     crossorigin="anonymous"></script>
-    <title>PDF Viewer</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-adsense-account" content="ca-pub-6744009221544441">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6744009221544441"
+ crossorigin="anonymous"></script>
+
+<title>PDF Viewer | Krish Soni</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<nav>
-  <a href="index.html">Home</a> |
-  <a href="about.html">About</a> |
-  <a href="contact.html">Contact</a> |
-  <a href="privacy-policy.html">Privacy Policy</a> |
-  <a href="terms.html">Terms</a>
-</nav>
 
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <h2>📚 Notes</h2>
+  <a href="index.html">🏠 Home</a>
+  <a href="about.html">👤 About</a>
+  <a href="contact.html">📩 Contact</a>
+  <a href="privacy-policy.html">🔒 Privacy</a>
+  <a href="terms.html">📄 Terms</a>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<header>
+  <h1>📄 PDF Viewer</h1>
+  <p style="color:#94a3b8; margin-top:5px;">Read your notes below</p>
+</header>
+
+<div class="container">
+
+  <!-- TOP BAR -->
+  <div class="card" style="display:flex; justify-content:space-between; align-items:center;">
+    <span id="fileName">Loading...</span>
+    <a id="downloadBtn" href="#" target="_blank" style="
+      background:#8b5cf6;
+      padding:6px 12px;
+      border-radius:8px;
+      color:white;
+      text-decoration:none;
+      font-size:14px;
+    ">Download</a>
+  </div>
+
+  <!-- PDF FRAME -->
+  <div class="card" style="padding:0;">
+  </div>
+
+  <iframe id="pdfFrame"></iframe>
+
+</div>
+</div>
+
+<!-- SCRIPT -->
 <script>
-    const params = new URLSearchParams(window.location.search);
-    const file = params.get("file");
+const params = new URLSearchParams(window.location.search);
+let file = params.get("file");
 
-    if (file) {
-        document.write(`<iframe src="${file}"></iframe>`);
-    } else {
-        document.write("<h2 style='color:white'>No PDF found</h2>");
-    }
+const frame = document.getElementById("pdfFrame");
+const fileName = document.getElementById("fileName");
+const downloadBtn = document.getElementById("downloadBtn");
+
+if (file) {
+
+    // ✅ decode (important)
+    file = decodeURIComponent(file);
+
+    frame.src = file + "#toolbar=1";
+
+    // ✅ load PDF properly
+    frame.src = file + "#zoom=page-width";
+
+    // filename show
+    fileName.textContent = file.split("/").pop();
+
+    // download button
+    downloadBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    const link = document.createElement("a");
+    link.href = file;
+    link.download = file.split("/").pop();  // 🔥 important
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+});
+
+} else {
+    fileName.textContent = "No PDF Found";
+    frame.style.display = "none";
+}
 </script>
-    
+
 </body>
-
 </html>
-
-
