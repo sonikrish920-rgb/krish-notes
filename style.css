@@ -89,6 +89,14 @@ h1 {
   transition: all 0.3s ease;
   position: relative;
 }
+.card {
+  z-index: 1;
+}
+
+.card a {
+  position: relative;
+  z-index: 5;
+}
 
 .card iframe {
   border-radius: 14px;
