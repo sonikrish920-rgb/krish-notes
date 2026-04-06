@@ -53,6 +53,7 @@
 
           <form onsubmit="sendToWhatsApp(event)">
     <input type="text" id="name" placeholder="Your Name" required>
+    <input type="text" id="number" placeholder="Your Number" required>
     <input type="email" id="email" placeholder="Your Email" required>
     <textarea id="message" placeholder="Your Message..." rows="4" required></textarea>
     <button type="submit">Send Message</button>
@@ -67,6 +68,7 @@ function sendToWhatsApp(event) {
     event.preventDefault();
 
     var name = document.getElementById("name").value;
+    var number = document.getElementById("number").value;
     var email = document.getElementById("email").value;
     var message = document.getElementById("message").value;
 
@@ -74,6 +76,7 @@ function sendToWhatsApp(event) {
 
     var url = "https://wa.me/" + phone + "?text="
         + "Name: " + encodeURIComponent(name) + "%0a"
+        + "Number: " + encodeURIComponent(number) + "%0a"
         + "Email: " + encodeURIComponent(email) + "%0a"
         + "Message: " + encodeURIComponent(message);
 
