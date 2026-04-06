@@ -62,6 +62,7 @@ header {
   padding: 20px;
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(10px);
+  text-align: center;
 }
 
 h1 {
