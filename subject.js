@@ -200,7 +200,7 @@ const subjects = {
             ]
         },
 
-         ImpQ: {
+         impq: {
             title: "Imp Q with model paper 2026",
             pdfs: [
                 { name: "BCE Imp topics", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/ImpQ/BCEImp.pdf" },
