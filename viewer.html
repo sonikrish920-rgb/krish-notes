@@ -61,41 +61,54 @@
 <!-- SCRIPT -->
 <script>
 const params = new URLSearchParams(window.location.search);
-let file = params.get("file");
+const file = params.get("file");
 
 const frame = document.getElementById("pdfFrame");
 const fileName = document.getElementById("fileName");
 const downloadBtn = document.getElementById("downloadBtn");
+const pdfDirectory = new URL("pdfs/", document.baseURI);
+let pdfUrl;
 
 if (file) {
+    try {
+        pdfUrl = new URL(file, document.baseURI);
+    } catch {
+        fileName.textContent = "Invalid PDF link";
+    }
+}
 
-    // ✅ decode (important)
-    file = decodeURIComponent(file);
+if (
+    pdfUrl &&
+    pdfUrl.origin === pdfDirectory.origin &&
+    pdfUrl.pathname.startsWith(pdfDirectory.pathname) &&
+    /\.pdf$/i.test(pdfUrl.pathname)
+) {
+    const pdfFileName = file.split("/").pop();
+    frame.src = pdfUrl.href + "#zoom=page-width";
+    fileName.textContent = pdfFileName;
+    downloadBtn.href = pdfUrl.href;
 
-    frame.src = file + "#toolbar=1";
-
-    // ✅ load PDF properly
-    frame.src = file + "#zoom=page-width";
-
-    // filename show
-    fileName.textContent = file.split("/").pop();
-
-    // download button
     downloadBtn.addEventListener("click", function(e) {
-    e.preventDefault();
+        e.preventDefault();
 
-    const link = document.createElement("a");
-    link.href = file;
-    link.download = file.split("/").pop();  // 🔥 important
+        const link = document.createElement("a");
+        link.href = pdfUrl.href;
+        link.download = pdfFileName;
 
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-});
-
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
 } else {
-    fileName.textContent = "No PDF Found";
+    if (!file) {
+        fileName.textContent = "No PDF Found";
+    } else if (!pdfUrl) {
+        fileName.textContent = "Invalid PDF link";
+    } else {
+        fileName.textContent = "Invalid or unsupported PDF link";
+    }
     frame.style.display = "none";
+    downloadBtn.style.display = "none";
 }
 
  function toggleMenu() {
