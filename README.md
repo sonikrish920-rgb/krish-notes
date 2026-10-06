@@ -1,81 +1,93 @@
-# 1st Year Engineering Notes
+<div align="center">
 
-A simple, static website for browsing first-year engineering study materials. Notes, question papers, assignments, and lab resources are organized by subject and opened in a built-in PDF viewer.
+# 📚 1st Year Engineering Notes
 
-## Features
+### Your study material, organized in one place.
 
-- Subject-wise study material
-- Search notes by name
-- In-browser PDF viewer with a download option
-- Responsive layout for desktop and mobile
-- No build step, package manager, or backend required
+Notes, question papers, assignments, and lab resources for first-year engineering students.
 
-## Subjects
+![Static website](https://img.shields.io/badge/website-static-8b5cf6?style=for-the-badge)
+![Built with HTML, CSS and JavaScript](https://img.shields.io/badge/built%20with-HTML%20%7C%20CSS%20%7C%20JavaScript-22c55e?style=for-the-badge)
+![Study resources](https://img.shields.io/badge/resources-PDFs%20%26%20documents-0ea5e9?style=for-the-badge)
 
-The site currently includes materials for:
+</div>
 
-- Engineering Chemistry
-- Mathematics I and II
-- English for Communication
-- Basic Electrical and Electronics Engineering (BEEE)
-- Engineering Graphics
-- Engineering Physics
-- Basic Mechanical Engineering
-- Basic Civil Engineering
-- Basic Computer Engineering
-- Language Lab and Seminars
-- C and C++ language notes
-- Semester II and important-question collections
+---
 
-## Project structure
+## ✨ What you can do
+
+- 📖 Browse study material organized by subject
+- 🔎 Search for notes by name
+- 📄 Read PDFs in the built-in viewer or download them
+- 📱 Use the site on desktop or mobile
+- ⚡ Run it directly—no build step, package manager, or backend required
+
+## 🎓 Subjects and resources
+
+| Subject | Available resources |
+| --- | --- |
+| 🧪 Engineering Chemistry | Unit notes and important questions |
+| ➗ Mathematics I & II | Unit notes, practice material, topics, and question papers |
+| 📝 English for Communication | Unit notes and important questions |
+| ⚡ Basic Electrical & Electronics Engineering (BEEE) | Unit notes |
+| 📐 Engineering Graphics | Unit notes and combined notes |
+| 🔬 Engineering Physics | Notes, assignments, lab work, and question papers |
+| ⚙️ Basic Mechanical Engineering | Unit notes, lab work, and question papers |
+| 🏗️ Basic Civil Engineering | Unit notes, lab work, and topics |
+| 💻 Basic Computer Engineering | Unit notes, lab manual, and question papers |
+| 🗣️ Language Lab & Seminars | Activities and communication resources |
+| 👨‍💻 C and C++ | Language notes |
+| 📚 Semester II | Important questions and timetable |
+
+## 🗂️ Project structure
 
 ```text
 .
-├── index.html              # Home page and subject list
-├── subject.html            # Subject notes page
-├── subject.js              # Subject data and search behavior
-├── viewer.html             # PDF viewer and download link
-├── style.css               # Shared site styles
+├── index.html              # 🏠 Home page and subject list
+├── subject.html            # 📚 Subject notes page
+├── subject.js              # 🔎 Subject data and search behavior
+├── viewer.html             # 📄 PDF viewer and download link
+├── style.css               # 🎨 Shared site styles
 ├── about.html
 ├── contact.html
 ├── privacy-policy.html
 ├── terms.html
-└── pdfs/                   # Study materials grouped by subject
+└── pdfs/                   # 📁 Study materials grouped by subject
 ```
 
-## Run locally
+## 🚀 Run locally
 
-This is a static website. Open the project folder with a local web server, such as the **Live Server** extension in Visual Studio Code, then open `index.html` in the browser.
+Open the project folder with a local web server, such as the **Live Server** extension in Visual Studio Code.
 
-Alternatively, from the project directory run:
+Or run this command from the project directory:
 
 ```bash
 python -m http.server 8000
 ```
 
-Then visit <http://localhost:8000>.
+Then open <http://localhost:8000> in your browser.
 
-## Deploy with GitHub Pages
+## 🌐 Publish with GitHub Pages
 
 1. Push the project files to a GitHub repository.
-2. In the repository, open **Settings → Pages**.
-3. Under **Build and deployment**, choose **Deploy from a branch**.
-4. Select the branch containing the site and the `/ (root)` folder, then save.
+2. Open **Settings → Pages** in the repository.
+3. Under **Build and deployment**, select **Deploy from a branch**.
+4. Choose the branch containing the site and the `/ (root)` folder, then save.
 5. Open the published URL shown in the Pages settings.
 
-No build command is needed. Keep `index.html` in the selected publishing folder.
+No build command is required. Keep `index.html` in the selected publishing folder.
 
-## Add or update study materials
+## ➕ Add or update study material
 
-1. Add the PDF or document under the appropriate folder in `pdfs/`.
-2. Add or update its entry in the corresponding subject's `pdfs` array in `subject.js`. The link should be relative to the project root, for example:
+1. Place the PDF or document in the appropriate folder under `pdfs/`.
+2. Add an entry to that subject's `pdfs` list in `subject.js`, using a path relative to the project root:
 
    ```js
    { name: "Unit 1 Notes", link: "pdfs/chemistry/UnitsNotes/unit1.pdf" }
    ```
 
-3. Use the exact file and folder names, including capitalization, so links also work when deployed on GitHub Pages.
+3. Match the file and folder names exactly, including capitalization, so links also work on GitHub Pages.
 
-## Credits and content
+## 🙌 Credits
 
-This site is maintained by Krish Soni. Study materials are provided for educational use; ownership and permissions remain with their respective authors or rights holders.
+Maintained by **Krish Soni**. Study materials are shared for educational use; ownership and permissions remain with their respective authors or rights holders.
