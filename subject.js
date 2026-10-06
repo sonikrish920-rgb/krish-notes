@@ -42,7 +42,7 @@ const subjects = {
             title: "Basic Electrical & Electronics",
             pdfs: [
                 { name: "Unit 1 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/beee/UnitsNotes/unit1.pdf" },
-                { name: "Unit 2 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/beee/UnitsNotes/unit2.pdf" },
+                { name: "Unit 2 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/beee/UnitsNotes/unut2.pdf" },
                 { name: "Unit 3 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/beee/UnitsNotes/unit3.pdf" },
                 { name: "Unit 4 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/beee/UnitsNotes/unit4.pdf" },
                 { name: "Unit 5 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/beee/UnitsNotes/unit5.pdf" }
@@ -118,13 +118,13 @@ const subjects = {
                 { name: "Unit 1 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/mechanical/UnitNotes/UNIT-1.pdf" },
                 { name: "Unit 2 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/mechanical/UnitNotes/UNIT-2.pdf" },
                 { name: "Unit 3 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/mechanical/UnitNotes/UNIT-3.pdf" },
-                { name: "Unit 4 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/mechanical/UnitNotes/UNIT-4.pdf" },
+                { name: "Unit 4 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/mechanical/UnitNotes/Unit-4.pdf" },
                 { name: "Unit 5 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/mechanical/UnitNotes/UNIT-5.pdf" },
                 { name: "Assignment", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/mechanical/UnitNotes/Assignment.pdf" },
                 { name: "Classi of Draught", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/mechanical/UnitNotes/ClassiOfDraught.pdf" },
                 { name: "Imp Questions", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/mechanical/ImpQ/Unit1-5.pdf" },
                 { name: "RGPV Q. Paper", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/mechanical/QPaper/Machanical.pdf" },
-                { name: "bme- front page & Index", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/mechanical/LabWork/FrontPage-Index .pdf" },
+                { name: "bme- front page & Index", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/mechanical/LabWork/FrontPage-Index.pdf" },
                 { name: "Experiment 1", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/mechanical/LabWork/Experiment1.pdf" },
                 { name: "Experiment 6", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/mechanical/LabWork/Experiment6.pdf" },
                 { name: "Experiment 4", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/mechanical/LabWork/Experiment4.pdf" },
@@ -294,7 +294,6 @@ if (searchBox) {
 function toggleMenu() {
   document.querySelector(".sidebar").classList.toggle("active");
 }
-
 
 
 
