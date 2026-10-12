@@ -39,7 +39,7 @@
   <!-- TOP BAR -->
   <div class="card" style="display:flex; justify-content:space-between; align-items:center;">
     <span id="fileName">Loading...</span>
-    <a id="downloadBtn" href="#" target="_blank" style="
+    <a id="downloadBtn" href="#" target="_blank" rel="noopener noreferrer" style="
       background:#8b5cf6;
       padding:6px 12px;
       border-radius:8px;
@@ -59,41 +59,39 @@
 </div>
 
 <!-- SCRIPT -->
+<script src="subject.js"></script>
 <script>
-const params = new URLSearchParams(window.location.search);
-const file = params.get("file");
+const viewerParams = new URLSearchParams(window.location.search);
+const file = viewerParams.get("file");
 
 const frame = document.getElementById("pdfFrame");
 const fileName = document.getElementById("fileName");
 const downloadBtn = document.getElementById("downloadBtn");
-const pdfDirectory = new URL("pdfs/", document.baseURI);
-const legacyPdfDirectory = new URL("https://sonikrish920-rgb.github.io/krish-notes/pdfs/");
-let pdfUrl;
-
-if (file) {
-    try {
-        pdfUrl = new URL(file, document.baseURI);
-        if (
-            pdfUrl.origin === legacyPdfDirectory.origin &&
-            pdfUrl.pathname.startsWith(legacyPdfDirectory.pathname)
-        ) {
-            pdfUrl = new URL(
-                pdfUrl.pathname.slice(legacyPdfDirectory.pathname.length),
-                pdfDirectory
-            );
-        }
-    } catch {
-        fileName.textContent = "Invalid PDF link";
-    }
-}
+const studyFileResolver = window.resolveStudyFileUrl;
+const allowedPdfPaths = new Set(
+    Object.values(window.subjectCatalog || {}).flatMap(subject =>
+        subject.pdfs
+            .map(pdf => studyFileResolver?.(pdf.link))
+            .filter(url => url && /\.pdf$/i.test(url.pathname))
+            .map(url => url.pathname)
+    )
+);
+const pdfUrl = file && typeof studyFileResolver === "function"
+    ? studyFileResolver(file)
+    : null;
 
 if (
     pdfUrl &&
-    pdfUrl.origin === pdfDirectory.origin &&
-    pdfUrl.pathname.startsWith(pdfDirectory.pathname) &&
-    /\.pdf$/i.test(pdfUrl.pathname)
+    /\.pdf$/i.test(pdfUrl.pathname) &&
+    allowedPdfPaths.has(pdfUrl.pathname)
 ) {
-    const pdfFileName = file.split("/").pop();
+    let pdfFileName = pdfUrl.pathname.split("/").pop();
+    try {
+        pdfFileName = decodeURIComponent(pdfFileName);
+    } catch {
+        // Keep the encoded filename when it is not valid percent-encoding.
+    }
+
     frame.src = pdfUrl.href + "#zoom=page-width";
     fileName.textContent = pdfFileName;
     downloadBtn.href = pdfUrl.href;
@@ -112,8 +110,6 @@ if (
 } else {
     if (!file) {
         fileName.textContent = "No PDF Found";
-    } else if (!pdfUrl) {
-        fileName.textContent = "Invalid PDF link";
     } else {
         fileName.textContent = "Invalid or unsupported PDF link";
     }
@@ -126,6 +122,5 @@ if (
 }
 
 </script>
-
 </body>
 </html>

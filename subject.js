@@ -1,6 +1,9 @@
 // ======= GET SUBJECT FROM URL ======
 const urlParams = new URLSearchParams(window.location.search);
-const sub = urlParams.get('sub')?.toLowerCase();
+const requestedSubject = urlParams.get('sub') || '';
+const sub = requestedSubject.length <= 32 && /^[a-z0-9]+$/i.test(requestedSubject)
+    ? requestedSubject.toLowerCase()
+    : '';
 
 // ======   NOTES DATA ======
 const subjects = {
@@ -217,56 +220,98 @@ const subjects = {
 
     };
 
-    // ====== SHOW NOTES =======
+const pdfDirectory = new URL("pdfs/", document.baseURI);
+const legacyPdfDirectory = new URL("https://sonikrish920-rgb.github.io/krish-notes/pdfs/");
+
+function resolveStudyFileUrl(value) {
+    try {
+        let url = new URL(value, document.baseURI);
+
+        if (
+            url.origin === legacyPdfDirectory.origin &&
+            url.pathname.startsWith(legacyPdfDirectory.pathname)
+        ) {
+            url = new URL(
+                url.pathname.slice(legacyPdfDirectory.pathname.length),
+                pdfDirectory
+            );
+        }
+
+        if (
+            url.origin !== pdfDirectory.origin ||
+            !url.pathname.startsWith(pdfDirectory.pathname) ||
+            url.search ||
+            url.hash
+        ) {
+            return null;
+        }
+
+        return url;
+    } catch {
+        return null;
+    }
+}
+
+window.subjectCatalog = subjects;
+window.resolveStudyFileUrl = resolveStudyFileUrl;
+
+// ====== SHOW NOTES =======
 const pdfList = document.getElementById("pdfList");
 
-if (subjects[sub]) {
+if (pdfList && Object.prototype.hasOwnProperty.call(subjects, sub)) {
 
-    subjectName.textContent = subjects[sub].title;
+    document.getElementById("subjectName").textContent = subjects[sub].title;
 
     subjects[sub].pdfs.forEach(pdf => {
 
         const card = document.createElement("a");
         card.className = "card";
 
-        const link = pdf.link.toLowerCase();
-
-        // ✅ detect file type
-        const isPDF = link.endsWith(".pdf");
-        const isDOC = link.endsWith(".doc") || link.endsWith(".docx");
+        const fileUrl = resolveStudyFileUrl(pdf.link);
+        const filePath = fileUrl ? fileUrl.pathname.toLowerCase() : "";
+        const isPDF = filePath.endsWith(".pdf");
+        const isDOC = filePath.endsWith(".doc") || filePath.endsWith(".docx");
 
         if (isPDF) {
-            // 👉 PDF → viewer
-            card.href = `viewer.html?file=${encodeURIComponent(pdf.link)}`;
+            card.href = `viewer.html?file=${encodeURIComponent(fileUrl.href)}`;
         } else if (isDOC) {
-            // 👉 DOCX → direct open/download
-            card.href = pdf.link;
+            card.href = fileUrl.href;
             card.target = "_blank";
+            card.rel = "noopener noreferrer";
         } else {
-            // 👉 unknown
             card.href = "#";
             card.style.pointerEvents = "none";
             card.style.opacity = "0.5";
         }
 
-        card.innerHTML = `
-            <h2>${pdf.name}</h2>
-            <p style="color:#94a3b8;">
-                ${isPDF ? "Open PDF" : isDOC ? "Download Document" : "Unsupported File"}
-            </p>
-        `;
+        const title = document.createElement("h2");
+        title.textContent = pdf.name;
 
+        const description = document.createElement("p");
+        description.style.color = "#94a3b8";
+        description.textContent = isPDF
+            ? "Open PDF"
+            : isDOC
+                ? "Download Document"
+                : "Unsupported File";
+
+        card.append(title, description);
         pdfList.appendChild(card);
     });
 
-} else {
+} else if (pdfList) {
 
-    pdfList.innerHTML = `
-        <div class="card">
-            <h3>No Notes Found</h3>
-            <p>This subject has no uploaded files yet.</p>
-        </div>
-    `;
+    const card = document.createElement("div");
+    card.className = "card";
+
+    const title = document.createElement("h3");
+    title.textContent = "No Notes Found";
+
+    const description = document.createElement("p");
+    description.textContent = "This subject has no uploaded files yet.";
+
+    card.append(title, description);
+    pdfList.appendChild(card);
 }
 // ===== SEARCH FUNCTION =====
 const searchBox = document.getElementById("searchBox");
@@ -291,17 +336,7 @@ if (searchBox) {
 
   });
 }
+
 function toggleMenu() {
   document.querySelector(".sidebar").classList.toggle("active");
 }
-
-
-
-
-
-
-
-
-
-
-
