@@ -65,7 +65,7 @@ const subjects = {
             pdfs: [
                 { name: "Unit 1-2 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/physics/UnitsNotes/unit1-2.pdf" },
                 { name: "Unit 1-4 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/physics/UnitsNotes/Unit1-4.pdf" },
-                { name: "Unit 3-5 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/physics/UnitsNotes/Unit3-5.pdf" },
+                { name: "Unit 3-5 Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/physics/UnitsNotes/Unit-3,5.pdf" },
                 { name: "Unit Electrostatics Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/physics/UnitsNotes/Electrostatics.pdf" },
                 { name: "Unit Wave Optics Notes", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/physics/UnitsNotes/WaveOptics.pdf" },
                 { name: "Assignment", link: "https://sonikrish920-rgb.github.io/krish-notes/pdfs/physics/Assignment/assignment.pdf" },
