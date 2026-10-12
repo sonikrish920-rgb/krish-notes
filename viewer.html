@@ -67,11 +67,21 @@ const frame = document.getElementById("pdfFrame");
 const fileName = document.getElementById("fileName");
 const downloadBtn = document.getElementById("downloadBtn");
 const pdfDirectory = new URL("pdfs/", document.baseURI);
+const legacyPdfDirectory = new URL("https://sonikrish920-rgb.github.io/krish-notes/pdfs/");
 let pdfUrl;
 
 if (file) {
     try {
         pdfUrl = new URL(file, document.baseURI);
+        if (
+            pdfUrl.origin === legacyPdfDirectory.origin &&
+            pdfUrl.pathname.startsWith(legacyPdfDirectory.pathname)
+        ) {
+            pdfUrl = new URL(
+                pdfUrl.pathname.slice(legacyPdfDirectory.pathname.length),
+                pdfDirectory
+            );
+        }
     } catch {
         fileName.textContent = "Invalid PDF link";
     }
